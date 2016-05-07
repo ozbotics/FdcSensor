@@ -7,11 +7,14 @@
 
 #include "FdcController.h"
 #include <Sensor.h>
+#include <TouchableSensor.h>
+
 #include <Value.h>
+
 
 class FdcController;
 
-class FdcSensor : public Sensor<unsigned long> {
+class FdcSensor : public Sensor<unsigned long>, public TouchableSensor {
   protected:
     FdcController* _controller;
     byte _sensorNum;
