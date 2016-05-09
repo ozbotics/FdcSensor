@@ -1,3 +1,7 @@
+/** @file FdcController.h 
+  *  Copyright (c) 2016 Ozbotics 
+  *  Distributed under the MIT license (see LICENSE)
+  */ 
 #ifndef _FDC_CONTROLLER_H
   #define _FDC_CONTROLLER_H
   
@@ -10,19 +14,29 @@
 
 class FdcSensor;
 
+/**
+ * FdcController 
+ *
+ * Provides interface to FDC1004 hardware. Shared by up to 4 FdcSensor(s)
+ */
 class FdcController {
   protected:
-    FDC1004 _fdc;
-    byte _maxSensors;
-
-    LinkedList<FdcSensor*> _motors = LinkedList<FdcSensor*>();
-    byte _numMotors = 0;
+    FDC1004 _fdc;   /**< protected variable  _fdc FDC1004 Sensor driver */ 
     
   public:
-    FdcController(byte maxSensors) : _maxSensors(maxSensors) {}
+  
+   /**
+    * Constructor
+    */
+    FdcController() {}
     
-    int32_t getCapacitance(byte sensorNum) {
-      return _fdc.getCapacitance(sensorNum);
+   /**
+    * make a measurement on channelNum
+    *
+    * @return the measured capacitance value
+    */    
+    int32_t getCapacitance(byte channelNum) {
+      return _fdc.getCapacitance(channelNum);
     }
 };
 

@@ -1,7 +1,7 @@
 #include "FdcSensor.h"
 
 void FdcSensor::getSingleReadAsync(unsigned int* capValue) {
-  *capValue = _controller->getCapacitance(_sensorNum);
+  *capValue = _controller->getCapacitance(_channelNum);
 }
 
 void FdcSensor::getSingleReadSync(unsigned int* capValue) {
