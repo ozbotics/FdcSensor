@@ -61,7 +61,6 @@ class FdcSensor : public Sensor<unsigned long>, public TouchableSensor {
     * requet a reading, then block until the requested reading is available
     * 
     * @param capValue Pointer to Capacitive Value 
-    * @return nothing
     */
     void getSingleReadSync(unsigned int* capValue);
     
@@ -74,8 +73,6 @@ class FdcSensor : public Sensor<unsigned long>, public TouchableSensor {
     
    /**
     * update the Sensor value
-    *
-    * @return nothing
     */
     virtual void refreshValue();
     
